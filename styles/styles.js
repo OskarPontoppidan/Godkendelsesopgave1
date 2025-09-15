@@ -42,30 +42,6 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   topbar: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    height: 60,
-    paddingHorizontal: 20,
-    backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    zIndex: 100,
-  },
-  picker: {
-    height: 40,
-    width: 180,
-  },
-  topbarLink: {
-    color: '#007BFF',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  topbar: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -77,5 +53,13 @@ export default StyleSheet.create({
     borderBottomColor: '#ccc',
     marginBottom: 10,
   },
-  
+  picker: {
+    height: 40,
+    width: 180,
+  },
+  topbarLink: {
+    color: '#007BFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
 });

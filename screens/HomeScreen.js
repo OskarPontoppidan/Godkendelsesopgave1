@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Platform } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+import { View, Text, TouchableOpacity, Picker, Platform } from 'react-native';
 import styles from '../styles/styles';
 
 export default function HomeScreen({ navigation }) {
@@ -8,26 +7,27 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {/* TOPBAR */}
+      {/* Topbar */}
       <View style={styles.topbar}>
-        {/* Vælg behandling */}
+        {/* Picker */}
         <Picker
           selectedValue={selectedType}
           style={styles.picker}
           onValueChange={(itemValue) => setSelectedType(itemValue)}
+          mode="dropdown"
         >
           <Picker.Item label="Psykolog" value="Psykolog" />
           <Picker.Item label="Coach" value="Coach" />
           <Picker.Item label="Kostvejleder" value="Kostvejleder" />
         </Picker>
 
-        {/* Link til "Se behandlere" */}
+        {/* Se behandlere link */}
         <TouchableOpacity onPress={() => navigation.navigate('Behandlere')}>
           <Text style={styles.topbarLink}>Se behandlere</Text>
         </TouchableOpacity>
       </View>
 
-      {/* INDHOLD */}
+      {/* Main content */}
       <Text style={styles.title}>Velkommen til HjælpMig</Text>
       <Text style={styles.subtitle}>Find den rette behandler for dig</Text>
 

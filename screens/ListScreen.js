@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import styles from '../styles/styles';
 
-// Dummy data
 const DATA = [
   {
     id: '1',

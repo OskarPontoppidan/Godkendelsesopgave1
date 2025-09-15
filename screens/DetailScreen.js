@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, Alert } from 'react-native';
 import styles from '../styles/styles';
 
 export default function DetailScreen({ route }) {
@@ -14,7 +14,10 @@ export default function DetailScreen({ route }) {
       <Text style={styles.title}>{item.name}</Text>
       <Text style={styles.subtitle}>{item.role}</Text>
       <Text style={{ marginBottom: 20 }}>{item.desc}</Text>
-      <Button title="Book tid" onPress={handleBooking} />
+
+      <TouchableOpacity style={styles.button} onPress={handleBooking}>
+        <Text style={styles.buttonText}>Book tid</Text>
+      </TouchableOpacity>
     </View>
   );
 }

@@ -65,4 +65,17 @@ export default StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  topbar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    backgroundColor: '#fff',
+    height: 60,
+    width: '100%',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    marginBottom: 10,
+  },
+  
 });

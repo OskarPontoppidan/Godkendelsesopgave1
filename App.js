@@ -28,12 +28,12 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="List" component={ListScreen} />
-          <Stack.Screen name="Detail" component={DetailScreen} />
+          <Stack.Screen name="Behandlere" component={BehandlereStack} />
         </Stack.Navigator>
       </NavigationContainer>
     );
-  }
+    }
+  
 
   return (
     <NavigationContainer>

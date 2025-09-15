@@ -62,4 +62,56 @@ export default StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  topbar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    paddingHorizontal: 10,
+    backgroundColor: '#e0f7ff',
+    height: 60,
+    width: '100%',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    marginBottom: 10,
+  },
+  picker: {
+    height: 40,
+    width: 160,
+  },
+  topbarLink: {
+    color: '#007BFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+    marginTop: 30,
+  },
+  
+  column: {
+    flex: 1,
+    padding: 10,
+  },
+  
+  imagePlaceholder: {
+    width: 200,
+    height: 200,
+    backgroundColor: '#ccc',
+    alignSelf: 'center',
+    borderRadius: 10,
+  },
+  
+  // Hvis du bruger rigtig billede:
+  image: {
+    width: 200,
+    height: 200,
+    resizeMode: 'cover',
+    alignSelf: 'center',
+    borderRadius: 10,
+  },
+  
+  
 });

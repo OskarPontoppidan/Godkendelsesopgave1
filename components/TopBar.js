@@ -1,21 +1,17 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Platform } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { Picker } from '@react-native-picker/picker'; // ✅ Dette er vigtigt
 import styles from '../styles/styles';
 
-export default function TopBar({ selectedType, setSelectedType, onSeeBehandlere, navigation }) {
+export default function TopBar({ selectedType, setSelectedType, onPressSeBehandlere }) {
   return (
     <View style={styles.topbar}>
-      {/* Hjem link */}
-      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-        <Text style={styles.topbarLink}>Hjem</Text>
-      </TouchableOpacity>
+      <Text style={styles.topbarLink}>Hjem</Text>
 
-      {/* Vælg ydelse */}
       <Picker
         selectedValue={selectedType}
         style={styles.picker}
-        onValueChange={(value) => setSelectedType(value)}
+        onValueChange={(itemValue) => setSelectedType(itemValue)}
         mode="dropdown"
       >
         <Picker.Item label="Psykolog" value="Psykolog" />
@@ -23,8 +19,7 @@ export default function TopBar({ selectedType, setSelectedType, onSeeBehandlere,
         <Picker.Item label="Kostvejleder" value="Kostvejleder" />
       </Picker>
 
-      {/* Se behandlere */}
-      <TouchableOpacity onPress={onSeeBehandlere}>
+      <TouchableOpacity onPress={onPressSeBehandlere}>
         <Text style={styles.topbarLink}>Se behandlere</Text>
       </TouchableOpacity>
     </View>

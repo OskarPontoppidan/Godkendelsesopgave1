@@ -23,24 +23,19 @@ function BehandlereStack() {
 export default function App() {
   const isWeb = Platform.OS === 'web';
 
-  if (isWeb) {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Behandlere" component={BehandlereStack} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-    }
-  
-
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Startside" component={HomeScreen} />
-        <Tab.Screen name="Behandlere" component={BehandlereStack} options={{ headerShown: false }} />
-      </Tab.Navigator>
+      {isWeb ? (
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Behandlere" component={BehandlereStack} options={{ headerShown: false }} />
+        </Stack.Navigator>
+      ) : (
+        <Tab.Navigator>
+          <Tab.Screen name="Startside" component={HomeScreen} />
+          <Tab.Screen name="Behandlere" component={BehandlereStack} options={{ headerShown: false }} />
+        </Tab.Navigator>
+      )}
     </NavigationContainer>
   );
 }

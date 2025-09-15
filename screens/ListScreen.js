@@ -1,27 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import styles from '../styles/styles';
-import TopBar from '../components/TopBar';
 
 const DATA = [
-  { id: '1', name: 'Mette Jensen', role: 'Psykolog', desc: 'Specialiseret i angst og depression' },
-  { id: '2', name: 'Lars Pedersen', role: 'Coach', desc: 'Hjælper med stresshåndtering og målsætning' },
-  { id: '3', name: 'Anna Holm', role: 'Kostvejleder', desc: 'Fokus på sund livsstil og mental balance' },
+  {
+    id: '1',
+    name: 'Mette Jensen',
+    role: 'Psykolog',
+    desc: 'Specialiseret i angst og depression',
+  },
+  {
+    id: '2',
+    name: 'Lars Pedersen',
+    role: 'Coach',
+    desc: 'Hjælper med stresshåndtering og målsætning',
+  },
+  {
+    id: '3',
+    name: 'Anna Holm',
+    role: 'Kostvejleder',
+    desc: 'Fokus på sund livsstil og mental balance',
+  },
 ];
-<Text style={styles.title}>Behandlere til {selectedType}</Text>
 
 export default function ListScreen({ navigation, route }) {
-  const [selectedType, setSelectedType] = useState(route.params?.filter || 'Psykolog');
-
-  const goToList = () => {
-    navigation.navigate('Behandlere', {
-      screen: 'List',
-      params: { filter: selectedType },
-    });
-  };
-
-  const filteredData = selectedType
-    ? DATA.filter((item) => item.role === selectedType)
+  const filter = route.params?.filter;
+  const filteredData = filter
+    ? DATA.filter((item) => item.role === filter)
     : DATA;
 
   const renderItem = ({ item }) => (
@@ -36,16 +41,7 @@ export default function ListScreen({ navigation, route }) {
 
   return (
     <View style={styles.container}>
-      {/* Topbar */}
-      <TopBar
-        selectedType={selectedType}
-        setSelectedType={setSelectedType}
-        onSeeBehandlere={goToList}
-        navigation={navigation}
-      />
-
-      <Text style={styles.title}>Behandlere til {selectedType}</Text>
-
+      <Text style={styles.title}>Behandlere til {filter}</Text>
       <FlatList
         data={filteredData}
         renderItem={renderItem}

@@ -23,7 +23,13 @@ const DATA = [
   },
 ];
 
-export default function ListScreen({ navigation }) {
+export default function ListScreen({ navigation, route }) {
+  const filter = route.params?.filter;
+
+  const filteredData = filter
+    ? DATA.filter((item) => item.role === filter)
+    : DATA;
+
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.item}
@@ -37,14 +43,10 @@ export default function ListScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <FlatList
-        data={DATA}
+        data={filteredData}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
     </View>
   );
 }
-const { filter } = route.params ?? {};
-const filteredData = filter
-  ? DATA.filter(item => item.role === filter)
-  : DATA;

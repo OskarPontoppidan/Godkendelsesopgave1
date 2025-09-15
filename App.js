@@ -24,7 +24,6 @@ export default function App() {
   const isWeb = Platform.OS === 'web';
 
   if (isWeb) {
-    // På web: brug kun stack navigation med top-menu
     return (
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
@@ -36,7 +35,6 @@ export default function App() {
     );
   }
 
-  // På mobil: brug bottom tab navigation
   return (
     <NavigationContainer>
       <Tab.Navigator>

@@ -5,11 +5,14 @@ import styles from '../styles/styles';
 export default function HomeScreen({ navigation }) {
   const [selectedType, setSelectedType] = useState('Psykolog');
 
+  const goToList = () => {
+    navigation.navigate('Behandlere', { screen: 'List', params: { filter: selectedType } });
+  };
+
   return (
     <View style={styles.container}>
       {/* Topbar */}
       <View style={styles.topbar}>
-        {/* Picker */}
         <Picker
           selectedValue={selectedType}
           style={styles.picker}
@@ -21,8 +24,7 @@ export default function HomeScreen({ navigation }) {
           <Picker.Item label="Kostvejleder" value="Kostvejleder" />
         </Picker>
 
-        {/* Se behandlere link */}
-        <TouchableOpacity onPress={() => navigation.navigate('Behandlere')}>
+        <TouchableOpacity onPress={goToList}>
           <Text style={styles.topbarLink}>Se behandlere</Text>
         </TouchableOpacity>
       </View>
@@ -31,10 +33,7 @@ export default function HomeScreen({ navigation }) {
       <Text style={styles.title}>Velkommen til HjælpMig</Text>
       <Text style={styles.subtitle}>Find den rette behandler for dig</Text>
 
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Behandlere')}
-      >
+      <TouchableOpacity style={styles.button} onPress={goToList}>
         <Text style={styles.buttonText}>Se behandlere</Text>
       </TouchableOpacity>
     </View>

@@ -44,3 +44,7 @@ export default function ListScreen({ navigation }) {
     </View>
   );
 }
+const { filter } = route.params ?? {};
+const filteredData = filter
+  ? DATA.filter(item => item.role === filter)
+  : DATA;

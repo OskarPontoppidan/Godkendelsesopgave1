@@ -41,4 +41,28 @@ export default StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
   },
+  topbar: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 60,
+    paddingHorizontal: 20,
+    backgroundColor: '#fff',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    zIndex: 100,
+  },
+  picker: {
+    height: 40,
+    width: 180,
+  },
+  topbarLink: {
+    color: '#007BFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
 });

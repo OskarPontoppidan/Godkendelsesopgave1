@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { Picker } from '@react-native-picker/picker'; // ✅ Dette er vigtigt
+import { Picker } from '@react-native-picker/picker';
 import styles from '../styles/styles';
 
 export default function TopBar({ selectedType, setSelectedType, onPressSeBehandlere }) {

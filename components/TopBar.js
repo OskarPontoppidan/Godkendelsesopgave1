@@ -6,7 +6,7 @@ import styles from '../styles/styles';
 export default function TopBar({ selectedType, setSelectedType, onPressSeBehandlere }) {
   return (
     <View style={styles.topbar}>
-      <Text style={styles.topbarLink}>Hjem</Text>
+
 
       <Picker
         selectedValue={selectedType}

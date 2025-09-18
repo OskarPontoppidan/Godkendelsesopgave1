@@ -1,5 +1,5 @@
+// App.js
 import React from 'react';
-import { Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -7,35 +7,35 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import ListScreen from './screens/ListScreen';
 import DetailScreen from './screens/DetailScreen';
+import YdelserScreen from './screens/YdelserScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-function BehandlereStack() {
+function MainTabs() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="List" component={ListScreen} options={{ title: 'Behandlere' }} />
-      <Stack.Screen name="Detail" component={DetailScreen} options={{ title: 'Behandler Info' }} />
-    </Stack.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: 'blue',
+        tabBarInactiveTintColor: 'gray',
+        tabBarLabelStyle: { fontSize: 14 },
+        headerShown: false,
+      }}
+    >
+      <Tab.Screen name="Startside" component={HomeScreen} />
+      <Tab.Screen name="Behandlere" component={ListScreen} />
+      <Tab.Screen name="Ydelser" component={YdelserScreen} />
+    </Tab.Navigator>
   );
 }
 
 export default function App() {
-  const isWeb = Platform.OS === 'web';
-
   return (
     <NavigationContainer>
-      {isWeb ? (
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Behandlere" component={BehandlereStack} options={{ headerShown: false }} />
-        </Stack.Navigator>
-      ) : (
-        <Tab.Navigator>
-          <Tab.Screen name="Startside" component={HomeScreen} />
-          <Tab.Screen name="Behandlere" component={BehandlereStack} options={{ headerShown: false }} />
-        </Tab.Navigator>
-      )}
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Tabs" component={MainTabs} />
+        <Stack.Screen name="Detail" component={DetailScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
